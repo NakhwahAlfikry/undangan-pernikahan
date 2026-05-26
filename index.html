@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Video</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      overflow:hidden;
+      font-family:Arial, sans-serif;
+      background:black;
+    }
+
+    .video-container{
+      position:relative;
+      width:100%;
+      height:100vh;
+    }
+
+    video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .overlay{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+
+      background:rgba(0,0,0,0.35);
+      color:white;
+      text-align:center;
+    }
+
+    .overlay h1{
+      font-size:60px;
+      margin-bottom:10px;
+      text-shadow:0 0 20px rgba(0,0,0,0.8);
+    }
+
+    .overlay p{
+      font-size:20px;
+      margin-bottom:20px;
+    }
+
+    button{
+      padding:12px 24px;
+      border:none;
+      border-radius:8px;
+      background:#ff0000;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#cc0000;
+      transform:scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+
+    <video id="myVideo" autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+      Browser kamu tidak support video.
+    </video>
+
+    <div class="overlay">
+      <h1>WELCOME</h1>
+      <p>Video langsung diputar saat halaman dibuka</p>
+
+      <button id="soundBtn">🔊 Nyalakan Suara</button>
+    </div>
+
+  </div>
+
+  <script>
+    const video = document.getElementById("myVideo");
+    const soundBtn = document.getElementById("soundBtn");
+
+    soundBtn.addEventListener("click", () => {
+      video.muted = false;
+      video.volume = 1;
+
+      soundBtn.innerText = "✅ Suara Aktif";
+    });
+  </script>
+
+</body>
+</html>
