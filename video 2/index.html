@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Responsive Video Mobile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000; /* Latar belakang hitam jika rasio layar berbeda */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        video {
+            /* Menggunakan max-width dan max-height agar video menyesuaikan diri 
+               secara proporsional mengikuti sisi layar yang paling mentok */
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* KUNCI: Video mengecil/membesar tanpa terpotong */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <video controls loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+    Browser kamu tidak mendukung tag video.
+</video>
+    </div>
+
+</body>
+</html>
